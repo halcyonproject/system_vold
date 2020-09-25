@@ -65,6 +65,8 @@ static const char* kFn_secdiscardable = "secdiscardable";
 static const char* kFn_version = "version";
 // Note: old key directories may contain a file named "stretching".
 
+static const int32_t KM_TAG_FBE_ICE = static_cast<int32_t>(7 << 28) | 16201;
+
 namespace {
 
 // Storage binding info for ensuring key encryption keys include a
@@ -132,6 +134,7 @@ static bool generateKeyStorageKey(Keystore& keystore, const std::string& appId, 
     }
     return true;
 }
+
 
 static km::AuthorizationSet beginParams(const std::string& appId) {
     return km::AuthorizationSetBuilder()
