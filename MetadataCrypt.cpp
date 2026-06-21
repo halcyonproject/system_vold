@@ -335,7 +335,7 @@ bool fscrypt_mount_metadata_encrypted(const std::string& blk_device, const std::
         options.cipher = legacy_aes_256_xts;
         options.use_legacy_options_format = true;
         if (is_metadata_wrapped_key_supported())
-            options.use_hw_wrapped_key = true;
+            options.key_type = KeyType::kHwWrappedV0;
         options.set_dun = android::base::GetBoolProperty("ro.crypto.set_dun", false);
         if (!options.set_dun && data_rec->fs_mgr_flags.checkpoint_blk) {
             LOG(ERROR)
